@@ -68,9 +68,10 @@ public class Client1 {
                         }
                 }).start();
         }
-        public static void connectingClientToHost() throws IOException {
+        public static void connectingClientToHost() {
+                String path = new File("src/settings.properties").getAbsolutePath();
 
-                try (BufferedReader bufferedReader = new BufferedReader(new FileReader("//C://Users/Michael/IdeaProjects/Online Chat/src/settings.properties"))) {
+                try (BufferedReader bufferedReader = new BufferedReader(new FileReader(path))) {
                         Properties properties = new Properties();
                         properties.load(bufferedReader);
 

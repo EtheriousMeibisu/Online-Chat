@@ -1,5 +1,6 @@
 package logger;
 
+import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -9,7 +10,7 @@ import java.time.format.DateTimeFormatter;
 public class Logger {
 
     private static Logger instance;
-    private static final String PATH = "//C://Users/Michael/IdeaProjects/Online Chat/src/main/java/logger/log.txt";
+    private static final String PATH = new File("src/main/java/logger/log.txt").getAbsolutePath();
     private static DateTimeFormatter time = DateTimeFormatter.ofPattern("HH:mm:ss");
 
     private Logger(){}

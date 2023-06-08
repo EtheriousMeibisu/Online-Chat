@@ -9,12 +9,12 @@ import java.util.*;
 public class Server {
     private static final Logger LOGGER = Logger.getInstance();
     private static Map<Integer, User> usersList = new HashMap<>();
-    final static String waySettings = "//C://Users/Michael/IdeaProjects/Online Chat/src/settings.properties";
+    final static String waySettings  = new File("src/settings.properties").getAbsolutePath();
     private static int port ;
 
     public static void main(String[] args)  {
 
-        getPort(waySettings);//протестить этот метод
+        getPort(waySettings);
 
         LOGGER.log("Start Server");
         try (ServerSocket serverSocket = new ServerSocket(port)  ) {
