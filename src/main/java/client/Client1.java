@@ -69,7 +69,7 @@ public class Client1 {
                 }).start();
         }
         public static void connectingClientToHost() {
-                String path = new File("src/settings.properties").getAbsolutePath();
+                String path = new File("../src/settings.properties").getAbsolutePath();
 
                 try (BufferedReader bufferedReader = new BufferedReader(new FileReader(path))) {
                         Properties properties = new Properties();
