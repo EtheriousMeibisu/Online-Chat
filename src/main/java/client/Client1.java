@@ -34,15 +34,16 @@ public class Client1 {
                 new Thread(() -> {
                         try {
                                 while (true) {
+                                        if (inMess.ready()) {
+                                                String messFromServer = inMess.readLine();
+                                                System.out.println(messFromServer);
+                                        }
                                         if (flag.get() == false) {
                                                 inMess.close();
                                                 clientSocket.close();
                                                 break;
                                         }
-                                        if (inMess.ready()) {
-                                                String messFromServer = inMess.readLine();
-                                                System.out.println(messFromServer);
-                                        }
+
                                 }
                         } catch (IOException ex) {
                                 ex.printStackTrace();
@@ -69,7 +70,7 @@ public class Client1 {
                 }).start();
         }
         public static void connectingClientToHost() {
-                String path = new File("../src/settings.properties").getAbsolutePath();
+                String path = new File("src/settings.properties").getAbsolutePath();
 
                 try (BufferedReader bufferedReader = new BufferedReader(new FileReader(path))) {
                         Properties properties = new Properties();
